@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Popup Login</title>
+</head>
+<body>
+  <h1>Simple Popup Login</h1>
+  <div>
+    Username: <span id="username">...</span>
+    <br/>
+    Password: <span id="password">...</span>
+  </div>
+  <br/>
+  <button onclick="login()">Login</button>
+  </body>
+  <script type="text/javascript">
+
+    function login(){
+      window.open ("popup.html","mywindow", "width=350,height=250");
+    }
+
+    window.addEventListener('message', function(e){
+      username = document.querySelector("#username");
+      password = document.querySelector("#password");
+      username.innerText = e.data.username;
+      password.innerText = e.data.password;
+    })
+  </script>
+</body>
+</html>
